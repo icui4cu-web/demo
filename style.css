@@ -21,6 +21,10 @@
 	column-gap: 2rem;
 	grid-template-columns: minmax(0, 1fr);
 }
+.stations__item:not(:last-child),
+.mini-stations__item:not(:last-child) {
+	border-bottom: 1px solid #eaebed;
+}
 @media (min-width: 576px) {
 	.mini-stations--col-2,
 	.mini-stations--col-3 {
@@ -124,11 +128,6 @@
 	margin-right: .375em;
 	flex-shrink: 0;
 	font-size: 1rem;
-}
-.station__track-onair {
-	color: #868c8d;
-	font-size: 0.75rem;
-	margin: 0;
 }
 .station__metrics {
 	margin-top: .5rem;
