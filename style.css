@@ -170,8 +170,8 @@
 		background-color: #f6f8fa;
 	}
 	.station__play {
-		/* visibility: hidden;
-		opacity: 0; */
+		visibility: hidden;
+		opacity: 0;
 	}
 	.station:hover .station__play {
 		visibility: visible;
