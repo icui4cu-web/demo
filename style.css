@@ -7,47 +7,53 @@
 	fill: currentColor;
 }
 
-/* stations */
-.stations {
+/* stations grid */
+.stations,
+.mini-stations {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 .stations--col-2,
-.stations--col-3 {
+.mini-stations--col-2,
+.mini-stations--col-3 {
 	display: grid;
 	column-gap: 2rem;
 	grid-template-columns: minmax(0, 1fr);
 }
 @media (min-width: 576px) {
-	.stations--col-2,
-	.stations--col-3 {
+	.mini-stations--col-2,
+	.mini-stations--col-3 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 @media (min-width: 768px) {
-	.stations--col-3 {
+	.mini-stations--col-3 {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+@media (min-width: 992px) {
+	.stations--col-2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
 /* station */
 .station {
-	display: flex;
 	align-items: center;
 	transition: background-color .35s;
 }
 .station--full {
 	padding: 1rem;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) max-content;
+	gap: 1rem;
 }
 .station--mini {
+	display: flex;
 	padding: .625rem;;
 }
-.station__img-holder {
-	flex-shrink: 0;
-}
 .station--full .station__img-holder {
-	margin-right: 1rem;
 	align-self: flex-start;
 }
 .station--mini .station__img-holder {
@@ -58,14 +64,14 @@
 	display: block;
 }
 .station--full .station__img {
-	width: 68px;
-	height: 37px;
+	width: 160px;
+	height: 85px;
 }
 .station--mini .station__img {
 	width: 30px;
 	height: 30px;
 }
-.station__info {
+.station--mini .station__info {
 	margin-right: 1rem;
 	min-width: 0;
 }
@@ -151,6 +157,7 @@
 	transition-duration: .15s;
 	border: none;
 	padding: 0;
+	outline: none;
 }
 .station--full .station__play {
 	font-size: 3rem;
@@ -163,8 +170,8 @@
 		background-color: #f6f8fa;
 	}
 	.station__play {
-		visibility: hidden;
-		opacity: 0;
+		/* visibility: hidden;
+		opacity: 0; */
 	}
 	.station:hover .station__play {
 		visibility: visible;
@@ -174,14 +181,17 @@
 		color: #ff6000;
 	}
 }
-@media (min-width: 600px) {
-	.station--full .station__img {
-		width: 160px;
-		height: 85px;
+@media (max-width: 479.98px) {
+	.station__img-holder {
+		grid-column: 1 / -1;
+		justify-self: center;
 	}
 }
-
-
+@media (min-width: 480px) {
+	.station--full {
+		grid-template-columns: max-content minmax(0, 1fr) max-content;
+	}
+}
 
 /* station-tags */
 .station-tags {
