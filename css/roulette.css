@@ -1,0 +1,48 @@
+.roulette {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+}
+.roulette::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	width: 2px;
+	background-color: #f00;
+	margin-left: -1px;
+	z-index: 1;
+}
+.roulette__list {
+	display: flex;
+	transition-property: transform;
+}
+.roulette--rotating .roulette__list {
+	transition-timing-function: cubic-bezier(.09,.41,.19,1);
+}
+.roulette--centering .roulette__list {
+	transition-delay: .2s;
+	transition-timing-function: linear;
+}
+.roulette__group {
+	display: flex;
+}
+.roulette__item {
+	padding-left: 2px;
+	padding-right: 2px;
+	flex-shrink: 0;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.roulette__item {
+	transition: transform .5s, filter .5s;
+}
+.roulette--highlight .roulette__item:not(.roulette__item--winner) {
+	filter: grayscale(1);
+}
+.roulette__item--winner {
+	
+}

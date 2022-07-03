@@ -5,392 +5,50 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+	<link rel="stylesheet" href="app.css">
+	<link rel="stylesheet" href="css/roulette.css">
 </head>
 <body>
-	<style>
-		*,
-		*::before,
-		*::after {
-			box-sizing: border-box;
-		}
-		body {
-			margin: 0;
-			padding: 1rem;
-			line-height: 1.5;
-			font-family: Arial, sans-serif;
-		}
-		ul + ul {
-			margin-top: 50px !important;
-		}
-	</style>
-	<ul class="stations">
-		<li class="stations__item station station--full">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="160" height="85" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<ul class="station__tags station-tags">
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">christian</a>
-					</li>
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">gospel</a>
-					</li>
-				</ul>
-				<p class="station__track-holder" title="Сейчас в эфире">
-					<svg class="icon"><use xlink:href="icons.svg#icon-music"></use></svg>
-					<span class="station__track">Ukombozi Choir - Jicho la Tatu - Kwaya ya Ukombozi KKKT Msasani</span>
-				</p>
-				<div class="station__metrics">
-					<p class="station__metric" title="слушателей">
-						<svg class="icon"><use xlink:href="icons.svg#icon-headphones"></use></svg>
-						0
-					</p>
-					<p class="station__metric" title="рейтинг">
-						<svg class="icon"><use xlink:href="icons.svg#icon-heart"></use></svg>
-						15
-					</p>
-				</div>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="stations__item station station--full">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="160" height="85" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<ul class="station__tags station-tags">
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">christian</a>
-					</li>
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">gospel</a>
-					</li>
-				</ul>
-				<p class="station__track-holder" title="Сейчас в эфире">
-					<svg class="icon"><use xlink:href="icons.svg#icon-music"></use></svg>
-					<span class="station__track">Ukombozi Choir - Jicho la Tatu - Kwaya ya Ukombozi KKKT Msasani</span>
-				</p>
-				<div class="station__metrics">
-					<p class="station__metric" title="слушателей">
-						<svg class="icon"><use xlink:href="icons.svg#icon-headphones"></use></svg>
-						0
-					</p>
-					<p class="station__metric" title="рейтинг">
-						<svg class="icon"><use xlink:href="icons.svg#icon-heart"></use></svg>
-						15
-					</p>
-				</div>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="stations__item station station--full">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="160" height="85" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<ul class="station__tags station-tags">
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">christian</a>
-					</li>
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">gospel</a>
-					</li>
-				</ul>
-				<p class="station__track-holder" title="Сейчас в эфире">
-					<svg class="icon"><use xlink:href="icons.svg#icon-music"></use></svg>
-					<span class="station__track">Ukombozi Choir - Jicho la Tatu - Kwaya ya Ukombozi KKKT Msasani</span>
-				</p>
-				<div class="station__metrics">
-					<p class="station__metric" title="слушателей">
-						<svg class="icon"><use xlink:href="icons.svg#icon-headphones"></use></svg>
-						0
-					</p>
-					<p class="station__metric" title="рейтинг">
-						<svg class="icon"><use xlink:href="icons.svg#icon-heart"></use></svg>
-						15
-					</p>
-				</div>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-	</ul>
+	<div class="roulette" id="roulette"></div>
+	<div class="content__open-case">
+		<button class="cases__price" type="button" id="start">
+			Открыть за 248
+		</button>
+		<button class="cases__price" type="button" id="sell" style="display: none">
+			Продать
+		</button>
+	</div>
+	<input placeholder="номер от 0 до 11" id="num" type="text">
+	
+	<script src="js/scripts.js"></script>
+	<script>
+		
+		const roulette = new Roulette("#roulette", {
+			prizeWidth: 191,
+			minSlides: 30,
+			rotatingTime: 10,
+			centeringTime: 1,
+			startCallback() {
+				// startBtn.style.display = 'none'
+				sellBtn.style.display = 'none'
+			},
+			stopCallback() {
+				startBtn.style.display = 'block'
+				sellBtn.style.display = 'block'
+			}
+		});
 
-	<ul class="stations stations--col-2">
-		<li class="stations__item station station--full">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="160" height="85" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<ul class="station__tags station-tags">
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">christian</a>
-					</li>
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">gospel</a>
-					</li>
-				</ul>
-				<p class="station__track-holder" title="Сейчас в эфире">
-					<svg class="icon"><use xlink:href="icons.svg#icon-music"></use></svg>
-					<span class="station__track">Ukombozi Choir - Jicho la Tatu - Kwaya ya Ukombozi KKKT Msasani</span>
-				</p>
-				<div class="station__metrics">
-					<p class="station__metric" title="слушателей">
-						<svg class="icon"><use xlink:href="icons.svg#icon-headphones"></use></svg>
-						0
-					</p>
-					<p class="station__metric" title="рейтинг">
-						<svg class="icon"><use xlink:href="icons.svg#icon-heart"></use></svg>
-						15
-					</p>
-				</div>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="stations__item station station--full">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="160" height="85" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<ul class="station__tags station-tags">
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">christian</a>
-					</li>
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">gospel</a>
-					</li>
-				</ul>
-				<p class="station__track-holder" title="Сейчас в эфире">
-					<svg class="icon"><use xlink:href="icons.svg#icon-music"></use></svg>
-					<span class="station__track">Ukombozi Choir - Jicho la Tatu - Kwaya ya Ukombozi KKKT Msasani</span>
-				</p>
-				<div class="station__metrics">
-					<p class="station__metric" title="слушателей">
-						<svg class="icon"><use xlink:href="icons.svg#icon-headphones"></use></svg>
-						0
-					</p>
-					<p class="station__metric" title="рейтинг">
-						<svg class="icon"><use xlink:href="icons.svg#icon-heart"></use></svg>
-						15
-					</p>
-				</div>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="stations__item station station--full">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="160" height="85" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<ul class="station__tags station-tags">
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">christian</a>
-					</li>
-					<li class="station-tags__item">
-						<a class="station-tags__link" href="">gospel</a>
-					</li>
-				</ul>
-				<p class="station__track-holder" title="Сейчас в эфире">
-					<svg class="icon"><use xlink:href="icons.svg#icon-music"></use></svg>
-					<span class="station__track">Ukombozi Choir - Jicho la Tatu - Kwaya ya Ukombozi KKKT Msasani</span>
-				</p>
-				<div class="station__metrics">
-					<p class="station__metric" title="слушателей">
-						<svg class="icon"><use xlink:href="icons.svg#icon-headphones"></use></svg>
-						0
-					</p>
-					<p class="station__metric" title="рейтинг">
-						<svg class="icon"><use xlink:href="icons.svg#icon-heart"></use></svg>
-						15
-					</p>
-				</div>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-	</ul>
+		const startBtn = document.getElementById('start')
+		const sellBtn = document.getElementById('sell')
+		const num = document.getElementById('num')
+		
+		startBtn.addEventListener('click', () => {
+			const id = Number(num.value) || 0
+			roulette.start(id, true)
+		})
 
-	<ul class="mini-stations">
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-	</ul>
-
-	<ul class="mini-stations mini-stations--col-2">
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-	</ul>
-
-	<ul class="mini-stations mini-stations--col-3">
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-		<li class="mini-stations__item station station--mini">
-			<a class="station__img-holder" href="">
-				<img class="station__img" src="img/112644.v2.png" alt="" width="30" height="30" loading="lazy">
-			</a>
-			<div class="station__info">
-				<p class="station__name">
-					<a class="station__link" href="">Tzgospel swahili</a>
-				</p>
-				<p class="station__track-holder">
-					<span class="station__track">La Poderosa 103 Com</span>
-				</p>
-			</div>
-			<button class="station__play" type="button">
-				<svg class="icon"><use xlink:href="icons.svg#icon-play"></use></svg>
-			</button>
-		</li>
-	</ul>
+		// roulette.start(0)
+	</script>
 </body>
 </html>
